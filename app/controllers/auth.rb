@@ -11,7 +11,7 @@ post '/login' do
     p @user
     p @user.id
     session[:user_id] = @user.id
-    redirect "/yolo"
+    redirect "/surveys"
   else
     redirect '/'
   end
@@ -27,10 +27,11 @@ post '/signup' do
   end
 end
 
-post '/logout' do
+get '/logout' do
   session.clear
   redirect '/login'
 end
+
 
 get "/yolo" do
   "yolo"
