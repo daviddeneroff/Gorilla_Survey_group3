@@ -1,0 +1,3 @@
+class PossibleChoice < ActiveRecord::Base
+  # Remember to create a migration!
+end
