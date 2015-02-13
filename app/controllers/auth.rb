@@ -13,7 +13,7 @@ post '/login' do
     session[:user_id] = @user.id
     redirect "/yolo"
   else
-    404
+    redirect '/'
   end
 end
 
