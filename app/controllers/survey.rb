@@ -22,6 +22,17 @@ get '/surveys/:id' do
   erb :'survey/survey'
 end
 
+post "/surveys/:id" do
+  # @survey = Survey.find(params[:id])
+  p params
+  redirect "/yolo"
+end
+
+
 get 'survey/:id/edit' do
   erb :'survey/survey_form'
 end
+
+
+
+
