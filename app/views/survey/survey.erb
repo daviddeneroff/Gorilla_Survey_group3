@@ -1,0 +1,8 @@
+<h3><%= @survey.title%></h3>
+  <% @survey.questions.each do |question|%>
+  <%= question.title %>
+    <% question.possible_choices.each do |choice|%>
+    <%= choice.content %>
+    <%end%>
+<% end %>
+
