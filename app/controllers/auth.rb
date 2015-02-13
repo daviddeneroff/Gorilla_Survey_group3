@@ -23,7 +23,7 @@ post '/signup' do
     session[:user_id] = @user.id
     redirect '/login'
   else
-    404
+    redirect '/'
   end
 end
 
