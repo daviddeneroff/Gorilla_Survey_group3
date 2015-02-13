@@ -22,9 +22,14 @@ get '/surveys/new/2' do
 end
 
 post '/surveys/new' do
-  # {"survey_name"=>"test this one", "question"=>{"0"=>"number one", "1"=>"question 2", "2"=>"question"}, "choice1"=>{"0"=>"a1 q1", "1"=>"a1 q 2", "2"=>"a1 a3"}, "choice2"=>{"0"=>"a2 q1", "1"=>"a1 q2", "2"=>"a2 q 3"}}
-  # use params to make a survey object with qs and pas
-  Survey.create(title: params[:survey_name], user_id: current_user.id)
+  questions = params[:question]
+  new_survey = Survey.create(title: params[:survey_name], user_id: current_user.id)
+    questions.each do |key, question|
+      new_question = Question.create(survey_id: new_survey.id, title:question)
+        PossibleChoice.create(question_id: new_question.id, content: params[:choice1][key], survey_id: new_survey.id)
+        PossibleChoice.create(question_id: new_question.id, content: params[:choice2][key], survey_id: new_survey.id)
+    end
+
 
   redirect '/surveys'
 end
