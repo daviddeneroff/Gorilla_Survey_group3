@@ -1,0 +1,13 @@
+<div id="main">
+  <div class="survey_num"><%= @survey.id %></div>
+  <% @survey.questions.each do |question| %>
+    <%= question.title  %>
+    <% question.possible_choices.each do |choice| %>
+     <br> <%= choice.content %>
+    <% end %>
+  <% end %>
+<form class="questions"> Question:<input class="question" type="text"><br>Choice 1:<input class="choice1" type="text"><br>Choice 2:<input class="choice2" type="text"><input value="Add Q to Survey" class="submit" type="submit"></form>
+</div>
+
+<a id="add_question" href="#">Add Question</a>
+
