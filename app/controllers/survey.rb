@@ -1,6 +1,9 @@
 get '/user/:id' do
   @user = User.find(params[:id])
   @surveys = Survey.where(user_id: params[:id])
+
+get '/user' do
+  @survey = Survey.where(user_id: current_user.id)
   erb :'survey/user_profile'
 end
 
