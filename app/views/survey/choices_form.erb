@@ -1,0 +1,12 @@
+<form action="/surveys/new" method="post">
+  <input type="hidden" name="survey_name" value="<%=params[:survey_name]%>">
+  <%@count.times do |num| %>
+  <h1>Question: <%= num +1 %> </h1>
+  <input name="question[<%=num%>]" type="text">
+  <h3>Answer 1</h3>
+    <input name="choice1[<%=num%>]" type="text">
+  <h3>Answer 2</h3>
+    <input name="choice2[<%=num%>]" type="text">
+  <%end%>
+  <input type="submit" value="make survey">
+</form>
