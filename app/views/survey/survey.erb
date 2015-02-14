@@ -3,10 +3,16 @@ survey number <%= @survey.id %> by <%= @survey.user.username %>
 
 <% @survey.questions.each do |question| %>
 
-  <form action="/surveys/:id" method="POST">
+  <form action="/surveys/<%= @survey.id %>" method="POST">
     <h5><%= question.title %><br></h5>
     <% question.possible_choices.each do |choice|%>
-       <input type="radio" name="question<%= question.id %>" value="<%= choice.content %>"><%= choice.content %>
+       <input type="radio" name="key" value="<%= choice.id %>"><%= choice.content %>
+
+       <% if @survey.user_id == current_user.id %>
+       <%= choice.votes.count %> people voted for this
+       <% end %>
+
+
      <br>
 
 

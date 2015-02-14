@@ -40,8 +40,8 @@ get '/surveys/:id' do
 end
 
 post "/surveys/:id" do
-  # @survey = Survey.find(params[:id])
   p params
+  Vote.create(possible_choice_id: params[:key])
   redirect "/surveys"
 end
 
