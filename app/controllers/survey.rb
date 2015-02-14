@@ -45,6 +45,15 @@ post "/surveys/:id" do
   redirect "/surveys"
 end
 
+delete '/survey/:id/delete'do
+  survey = Survey.find(params[:id])
+  survey.destroy
+  redirect '/'
+end
+
+put '/survey/:id/update' do
+  redirect '/'
+end
 
 # get 'survey/:id/edit' do
 #   erb :'survey/survey_form'
