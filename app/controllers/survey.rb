@@ -39,11 +39,11 @@ get '/surveys/:id' do
   erb :'survey/survey'
 end
 
-# post "/surveys/:id" do
-#   # @survey = Survey.find(params[:id])
-#   p params
-#   redirect "/surveys"
-# end
+post "/surveys/:id" do
+  # @survey = Survey.find(params[:id])
+  p params
+  redirect "/surveys"
+end
 
 delete '/survey/:id/delete'do
   survey = Survey.find(params[:id])
