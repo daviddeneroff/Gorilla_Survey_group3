@@ -39,26 +39,34 @@ get '/surveys/:id' do
   erb :'survey/survey'
 end
 
-post "/surveys/:id" do
-  # @survey = Survey.find(params[:id])
-  p params
-  redirect "/surveys"
-end
+# post "/surveys/:id" do
+#   # @survey = Survey.find(params[:id])
+#   p params
+#   redirect "/surveys"
+# end
 
 delete '/survey/:id/delete'do
   survey = Survey.find(params[:id])
   survey.destroy
-  redirect "/user/#{survey.user.id}"
+  redirect back
+end
+
+get '/survey/:id/update' do
+  @survey = Survey.find(params[:id])
+  erb :'survey/update_survey_form'
 end
 
 put '/survey/:id/update' do
-  redirect '/'
+  Survey.update(params[:id], {:title => params[:title]})
+  redirect back
 end
 
 # get 'survey/:id/edit' do
 #   erb :'survey/survey_form'
-# end
+# # end
 
-
+# <form action="/survey/<%=survey.id%>/update" method= "POST">
+#   <input type="hidden" name="_method" value="put">
+#   <input type="submit" value="Update Survey">
 
 

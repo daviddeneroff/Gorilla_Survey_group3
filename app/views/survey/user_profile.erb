@@ -8,10 +8,7 @@
   <input type="hidden" name="_method" value="Delete">
   <input type="submit" value="Delete Survey">
 </form>
-<form action="/survey/<%=survey.id%>/update" method= "POST">
-  <input type="hidden" name="_method" value="put">
-  <input type="submit" value="Update Survey">
-</form>
+<a href="/survey/<%=survey.id%>/update">Update</a>
 <%end%>
 <p></p>
 <p><a href='/surveys'>Back to ALL SURVEY</a></p>
