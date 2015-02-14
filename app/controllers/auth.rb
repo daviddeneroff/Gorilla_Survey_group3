@@ -31,8 +31,3 @@ get '/logout' do
   session.clear
   redirect '/login'
 end
-
-
-get "/yolo" do
-  "yolo"
-end

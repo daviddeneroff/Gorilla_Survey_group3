@@ -1,10 +1,12 @@
 get '/user/:id' do
   @user = User.find(params[:id])
   @surveys = Survey.where(user_id: params[:id])
-
-get '/user' do
-  @survey = Survey.where(user_id: current_user.id)
   erb :'survey/user_profile'
+    if @user.id == session[:user_id]
+      erb :'survey/user_profile'
+    else
+      redirect '/login'
+    end
 end
 
 get '/surveys' do
@@ -29,8 +31,6 @@ post '/surveys/new' do
         PossibleChoice.create(question_id: new_question.id, content: params[:choice1][key], survey_id: new_survey.id)
         PossibleChoice.create(question_id: new_question.id, content: params[:choice2][key], survey_id: new_survey.id)
     end
-
-
   redirect '/surveys'
 end
 

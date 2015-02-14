@@ -3,6 +3,8 @@
 <h1><%=@user.username%></h1>
 <% @surveys.each do |survey| %>
 <p><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></p>
+<input type="submit" value="delete survey">
+<input type="submit" value="edit survey">
 <%end%>
 <p></p>
 <p><a href='/surveys'>Back to ALL SURVEY</a></p>
