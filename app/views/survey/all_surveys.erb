@@ -1,5 +1,9 @@
-<% @surveys.each do |survey| %>
-<p><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></p>
+
+<div class="pagebox">
+	<h1 class="center">All Surveys</h1>
+       <% @surveys.each do |survey| %>
+<p><a href="/surveys/<%=survey.id%>"><%= survey.title%></a> | Made By: <%= survey.user.username %> | Responses: </p>
 
 
 <%end%>
+ </div>

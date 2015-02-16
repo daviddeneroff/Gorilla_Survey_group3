@@ -6,7 +6,7 @@
 
 		<tr>
 			<th colspan="16" class="text-left">
-				<%=@user.username.capitalize%>'s Dashboard | <a href="/surveys/new"><button type="button" class="btn btn-success">+ Create a Survey</button></span></a>
+				<%=@user.username.capitalize%>'s Dashboard | <a href="/surveys/new"><button type="button" class="btn btn-success">+ Create a Survey</button></span></a> <a href="/surveys"><button type="button" class="btn btn-default">See All Surveys</button></span></a>
 			</th>
 		</tr>
 
@@ -33,7 +33,7 @@
 
 
 <td class="text-left"><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></td>
-<td class="text-left"><%= "Date"%></td>
+<td class="text-left"><%= survey.updated_at.to_date%></td>
 
 
 <td class="text-left"><%= "Responses"%></td>
@@ -51,7 +51,7 @@
     </button>
     <ul class="dropdown-menu" role="menu">
       <li><a href="/survey/<%=survey.id%>/update">Edit Title</a></li>
-      <li><a href="#"><form action="/survey/<%=survey.id%>/delete" method= "POST">
+      <li><a href="#"><form class="delete_button" action="/survey/<%=survey.id%>/delete" method= "POST">
 	<input type="hidden" name="_method" value="Delete">
 	<input type="submit" value="Delete Survey">
 </form></a></li>

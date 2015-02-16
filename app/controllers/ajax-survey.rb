@@ -1,8 +1,8 @@
-get '/surveys/new_ajax' do
+get '/surveys/new' do
   erb :'survey/ajax_form'
 end
 
-post '/surveys/new_ajax' do
+post '/surveys/new' do
    survey = Survey.create(title: params[:survey_name], user_id: session[:user_id])
 
   redirect "/surveys/#{survey.id}/edit"

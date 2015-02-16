@@ -37,7 +37,7 @@ div.table-title {
 th {
   color:#D5DDE5;;
   background: rgb(185,18,27);
-  border-bottom:4px solid #9ea7af;
+  border-bottom:1px solid black;
   border-right: 1px solid #343a45;
   font-size:14px;
   font-weight: 100;
@@ -83,7 +83,7 @@ tr:nth-child(odd) td {
   background:#4E5066;
 }*/
 tfoot tr:last-child td{
-  background: grey;
+  background: rgb(185,18,27);
     color: white;
       border-top: 0;
       border-bottom:0
@@ -91,13 +91,13 @@ tfoot tr:last-child td{
 
 }
 
-tfoot tr:last-child:hover td{
+/*tfoot tr:last-child:hover td{
   background: grey;
   color: white;
     border-top: 0;
      border-bottom:0
 
-}
+}*/
 tr:last-child td:first-child {
   border-bottom-left-radius:3px;
 
@@ -149,7 +149,7 @@ td.text-right {
 
 thead tr:first-child  th{
   
-  background:grey;
+  background:rgb(76,27,27);
   
 }
 .green{
