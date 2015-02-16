@@ -1,13 +1,23 @@
-<div id="main">
-  <div class="survey_num"><%= @survey.id %></div>
-  <% @survey.questions.each do |question| %>
-    <%= question.title  %>
-    <% question.possible_choices.each do |choice| %>
-     <br> <%= choice.content %>
-    <% end %>
-  <% end %>
-<form class="questions"> Question:<input class="question" type="text"><br>Choice 1:<input class="choice1" type="text"><br>Choice 2:<input class="choice2" type="text"><input value="Add Q to Survey" class="submit" type="submit"></form>
+<div id="survey"  data-survey_num="<%= @survey.id %>">
+	<div class="survey_num"><%= @survey.id %> - <%= @survey.title %></div>
+	<section>  
+		<input id="last_question_num" value="<%= @survey.questions.all.count %>" type="hidden">
+
+	<% @survey.questions.each_with_index do |question,index| %>
+
+		<h2 data-q_num="<%= index+1 %>"><%="##{index+1} #{question.title }" %></h2>
+		<% question.possible_choices.each_with_index do |choice,index| %>
+		<p>Choice <%= index+1 %>: <%= choice.content %></p>
+		<% end %>
+	
+	<% end %>
+	</section>
+	<form data-q_form="1" id="ajax_form"> Question:<input class="question_in" type="text"><br>Choice 1:<input class="choice1" type="text"><br>Choice 2:<input class="choice2" type="text"><input value="Add Q to Survey" class="submit" type="submit"></form>
+	<br>
+	<a  href="/surveys/<%= @survey.id %>">Preview Form</a> |
+		<a  href="/user/<%= current_user.id %>">Back to Dashboard</a>
+
 </div>
 
-<a id="add_question" href="#">Add Question</a>
+
 

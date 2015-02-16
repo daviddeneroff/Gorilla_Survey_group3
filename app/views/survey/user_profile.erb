@@ -1,15 +1,83 @@
 
 
-<h1><%=@user.username%></h1>
-<% @surveys.each do |survey| %>
-<p><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></p>
+<!-- <h1></h1> -->
+<table class="table-fill">
+	<thead>
 
-<form action="/survey/<%=survey.id%>/delete" method= "POST">
-  <input type="hidden" name="_method" value="Delete">
-  <input type="submit" value="Delete Survey">
-</form>
-<a href="/survey/<%=survey.id%>/update">Update</a>
+		<tr>
+			<th colspan="16" class="text-left">
+				<%=@user.username.capitalize%>'s Dashboard | <a href="/surveys/new"><button type="button" class="btn btn-success">+ Create a Survey</button></span></a> <a href="/surveys"><button type="button" class="btn btn-default">See All Surveys</button></span></a>
+			</th>
+		</tr>
+
+
+
+		<tr class="so-awesome">
+			<th class="text-left">Title</th>
+			<th class="text-left">Modified</th>
+			<th class="text-left">Response</th>
+			<th class="text-left">Actions</th>
+
+
+
+		</tr>
+
+	</thead>
+	<tbody class="table-hover">
+<% @surveys.each do |survey| %>
+
+
+
+<tr data-key="0" class="row-0">
+
+
+
+<td class="text-left"><a href="/surveys/<%=survey.id%>"><%= survey.title%></a></td>
+<td class="text-left"><%= survey.updated_at.to_date%></td>
+
+
+<td class="text-left"><%= "Responses"%></td>
+
+<td class="text-left">
+
+<div class="btn-group" role="group" aria-label="...">
+  <button type="button" class="btn btn-default"><a class="black" href="/surveys/<%= survey.id %>/edit">+ Add Questions</a></button>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-bars"></i>
+
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="/survey/<%=survey.id%>/update">Edit Title</a></li>
+      <li><a href="#"><form class="delete_button" action="/survey/<%=survey.id%>/delete" method= "POST">
+	<input type="hidden" name="_method" value="Delete">
+	<input type="submit" value="Delete Survey">
+</form></a></li>
+    </ul>
+  </div>
+</div>
+</td>
+
+
+
+
+</tr>
+
+
+
 <%end%>
+</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="16">
+
+			</td>
+		</tr>
+	</tfoot>
+
+</table>
 <p></p>
 <p><a href='/surveys'>Back to ALL SURVEY</a></p>
 

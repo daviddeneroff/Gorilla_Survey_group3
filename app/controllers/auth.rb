@@ -1,5 +1,8 @@
 get '/' do
-  redirect '/login'
+ 
+    erb :home, :layout => :"home_layout"
+
+
 end
 
 get '/login' do
@@ -11,7 +14,7 @@ post '/login' do
     p @user
     p @user.id
     session[:user_id] = @user.id
-    redirect "/surveys"
+    redirect "/user/#{@user.id}"
   else
     redirect '/'
   end

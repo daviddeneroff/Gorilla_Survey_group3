@@ -1,0 +1,25 @@
+
+
+<div id="banner2">
+  <h1>When you need a quick and simple survey...</h1>
+  <div class="monkey_circle"><img src="/img/monkey.png" alt=""></div>
+  <section id="homeSection2">
+    <div class="box">
+    
+    <% if current_user %>
+      <p><h3>Go to Dashboard</h3></p>
+      <p><a href="/user/<%=current_user.id %>">My Dashboard</a></p>
+        <% else %>
+    <p><h3>Create a Survey Today!</h3></p>
+      <p><a href="/login">Sign Up</a></p>
+      
+    <% end %>
+    
+
+    </div>
+  </section>
+
+
+
+  </div>
+  

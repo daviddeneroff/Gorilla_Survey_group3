@@ -1,25 +1,39 @@
 $(document).ready(function() {
-  $('#add_question').click(function(){
 
-    $('#main').append('<form class="questions"> Question:<input type="text"><br>Choice 1:<input type="text"><br>Choice 2:<input type="text"><input value="Add Q to Survey" type="submit"></form>')
-
-
-  })
-
-  $('#main').submit(".questions input .submit",function(){
+  $('#ajax_form').submit(function(e){
    //AJAX clall
-   var surveyID = $('.survey_num').html();
-   var question = $('.question').val();
+   e.preventDefault();
+   var lastQuestionID = $('#last_question_num').val();
+   
+   var QCount = parseInt(lastQuestionID) + 1;
+   $('#last_question_num').val(QCount);
+
+
+   var surveyID = $('#survey').data("survey_num");
+   var question = $('.question_in').val();
    var choice1 = $('.choice1').val();
    var choice2 = $('.choice2').val();
+   console.log("question " + question + " choice1 " + choice1)
 
-     $.ajax({
-        type: "post",
-        data: {question: question, choice1: choice1, choice2: choice2},
-        url: "/surveys/"+surveyID+"/add_questions",
-        success: function(success) {
-           console.log(success)
-        }
-      });
-  })
+
+
+  $.ajax({
+    type: "post",
+    data: {question: question, choice1: choice1, choice2: choice2},
+    url: "/surveys/"+surveyID+"/add_questions",
+
+    success: function(success) {
+     console.log(success);
+
+     
+   }
+ });
+     // get last num
+
+     $('section').append('<h2>#'+ QCount+' '+ question +'</h2>')
+     $('section').append('<p>choice1: '+ choice1 +'</p>')
+     $('section').append('<p>choice2: '+ choice2 +'</p>')
+
+
+   })
 });
