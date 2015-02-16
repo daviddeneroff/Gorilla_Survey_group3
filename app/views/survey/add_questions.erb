@@ -1,16 +1,18 @@
-<div data-survey_num="<%= @survey.id %>" id="main">
-	<div class="survey_num"><%= @survey.id %></div>
+<div id="survey" data-survey_num="<%= @survey.id %>">
+	<div class="survey_num"><%= @survey.id %> - <%= @survey.title %></div>
 	<% @survey.questions.each_with_index do |question,index| %>
 
 	<section>  
-		<h5 data-q_num="<%= index+1 %>"><%="##{index+1} #{question.title }" %></h5>
-		<% question.possible_choices.each do |choice| %>
-		<p> <%= choice.content %></p>
+		<h2 data-q_num="<%= index+1 %>"><%="##{index+1} #{question.title }" %></h2>
+		<% question.possible_choices.each_with_index do |choice,index| %>
+		<p>Choice <%= index+1 %>: <%= choice.content %></p>
 		<% end %>
 	</section>
 	<% end %>
-	<!-- <form data-q_form="1" class="add_question"> Question:<input class="question_in" type="text"><br>Choice 1:<input class="choice1" type="text"><br>Choice 2:<input class="choice2" type="text"><input value="Add Q to Survey" class="submit" type="submit"></form> -->
+	<form data-q_form="1" class="add_question"> Question:<input class="question_in" type="text"><br>Choice 1:<input class="choice1" type="text"><br>Choice 2:<input class="choice2" type="text"><input value="Add Q to Survey" class="submit" type="submit"></form>
+	<br>
+	<a  href="/surveys/<%= @survey.id %>">Preview Form</a>
 </div>
 
-<a id="add_question" href="#">Add Question</a>
+
 

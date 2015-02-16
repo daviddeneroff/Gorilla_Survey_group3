@@ -20,3 +20,4 @@ survey number <%= @survey.id %> by <%= @survey.user.username %>
     <% end %>
   <input type="submit" value="Submit Your Responses">
   </form>
+<a href="/surveys/<%= @survey.id %>/edit">Edit Survey</a>
