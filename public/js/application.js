@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('#main').submit(".questions input .submit",function(e){
+  $('.add_question').submit(".questions input .submit",function(e){
    //AJAX clall
    e.preventDefault();
    var surveyID = $('#survey').data("survey_num");

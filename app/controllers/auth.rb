@@ -1,9 +1,7 @@
 get '/' do
-   # haml :home, :layout => :home_layout
-  # :home => 
+ 
     erb :home, :layout => :"home_layout"
 
-     # haml :home
 
 end
 
