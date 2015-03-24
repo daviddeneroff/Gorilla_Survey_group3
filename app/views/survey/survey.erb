@@ -4,13 +4,13 @@ survey number <%= @survey.id %> by <%= @survey.user.username %>
 <% @survey.questions.each do |question| %>
 
   <form action="/surveys/<%= @survey.id %>" method="POST">
-    <h5><%= question.title %><br></h5>
-    <% question.possible_choices.each do |choice|%>
-       <input type="radio" name="key" value="<%= choice.id %>"><%= choice.content %>
-
-       <% if @survey.user_id == current_user.id %>
-       <%= choice.votes.count %> people voted for this
-       <% end %>
+    <div>
+      <h5><%= question.title %><br></h5>
+        <% question.possible_choices.each do |choice|%>
+        <input type="radio" name="hello[<%= question.id %>]" value="<%= choice.id %>"><%= choice.content %>
+        <% if @survey.user_id == current_user.id %>
+        <%= choice.votes.count %> people voted for this
+        <% end %>
 
 
      <br>
@@ -18,6 +18,10 @@ survey number <%= @survey.id %> by <%= @survey.user.username %>
 
       <% end %>
     <% end %>
+    </div>
   <input type="submit" value="Submit Your Responses">
   </form>
-<a href="/surveys/<%= @survey.id %>/edit">Edit Survey</a>
+
+  <% if current_user.id == @survey.user_id%>
+    <a href="/surveys/<%= @survey.id %>/edit">Edit Survey</a>
+  <% end %>

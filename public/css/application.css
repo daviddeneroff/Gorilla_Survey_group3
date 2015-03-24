@@ -1,11 +1,11 @@
 
 /* CSS declarations go here */
-/*rgb(252,250,225) off  white */ 
-/*rgb(246,228,151) beigh */ 
-/*rgb(76,27,27) dark red */ 
-/*rgb(189,141,70) light brown */ 
-/*rgb(185,18,27) red */  
-/*rgba(3,3,3,.4) grey ;*/ 
+/*rgb(252,250,225) off  white */
+/*rgb(246,228,151) beigh */
+/*rgb(76,27,27) dark red */
+/*rgb(189,141,70) light brown */
+/*rgb(185,18,27) red */
+/*rgba(3,3,3,.4) grey ;*/
 
 @import '/css/table.css';
 i {
@@ -62,7 +62,7 @@ header a:hover, header a:focus {
 
 #banner2 h1 {
     padding-top: 20px;
-    margin-top: 0; 
+    margin-top: 0;
     text-align: center;
     color: white;
     text-shadow: 2px 2px #000;
@@ -73,7 +73,7 @@ header a:hover, header a:focus {
 
 div.monkey_circle {
 
-    margin-right: auto; 
+    margin-right: auto;
     margin-left: auto;
     border-radius: 100%;
     background: rgb(246,228,151)!important;
@@ -82,7 +82,7 @@ div.monkey_circle {
     vertical-align: center;
     line-height: 250px;
     text-align: center;
-    box-shadow: 10px 10px 10px 5px rgb(76,27,27) 
+    box-shadow: 10px 10px 10px 5px rgb(76,27,27)
     ;
 
 
@@ -146,8 +146,8 @@ div.monkey_circle {
 }
 
 .container div {
-    border-bottom: 1px black solid; 
-    padding: 40px 0; 
+    border-bottom: 1px black solid;
+    padding: 40px 0;
 }
 
 #homeSection2 {
@@ -155,11 +155,11 @@ div.monkey_circle {
     /*background: rgb(246,228,151); */
     /*background: rgb(76,27,27);*/
     /*background: rgb(189,141,70);*/
-    background: rgb(185,18,27) !important;  
+    background: rgb(185,18,27) !important;
     height: 80%;
     overflow: inherit;
 
- 
+
 
 }
 
@@ -185,6 +185,16 @@ div.monkey_circle {
     border-radius: 5px;
     padding: 50px;
     margin-bottom: 30px;
-color: inherit;
-background-color: #eee;
+    color: inherit;
+    background-color: #eee;
+    text-align: center;
+    font-size: 2em;
+}
+
+.bootstrap-override {
+    width: 25%;
+}
+
+.login-signup {
+    list-style-type: none;
 }
