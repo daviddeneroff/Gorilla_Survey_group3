@@ -4,7 +4,7 @@ $(document).ready(function() {
    //AJAX clall
    e.preventDefault();
    var lastQuestionID = $('#last_question_num').val();
-   
+
    var QCount = parseInt(lastQuestionID) + 1;
    $('#last_question_num').val(QCount);
 
@@ -13,7 +13,9 @@ $(document).ready(function() {
    var question = $('.question_in').val();
    var choice1 = $('.choice1').val();
    var choice2 = $('.choice2').val();
-   console.log("question " + question + " choice1 " + choice1)
+   $('.question_in').val("");
+   $('.choice2').val("");
+   $('.choice1').val("");
 
 
 
@@ -23,9 +25,7 @@ $(document).ready(function() {
     url: "/surveys/"+surveyID+"/add_questions",
 
     success: function(success) {
-     console.log(success);
 
-     
    }
  });
      // get last num
