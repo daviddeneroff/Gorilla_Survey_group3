@@ -1,3 +1,7 @@
+after do
+ActiveRecord::Base.connection.close
+end
+
 get '/user/:id' do
   @user = User.find(params[:id])
   @surveys = Survey.where(user_id: params[:id])
